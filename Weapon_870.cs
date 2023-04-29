@@ -99,10 +99,6 @@ datablock ShapeBaseImageData(RPX_M870Image)
 	doColorShift = true;
 	colorShiftColor = RPX_M870Item.colorShiftColor;
 
-	shellSound = AEShellShotgun;
-	shellSoundMin = 600;
-	shellSoundMax = 700;
-
 	muzzleFlashScale = "1.5 1.5 1.5";
 
 	bulletScale = "1 1 1";
@@ -225,7 +221,6 @@ datablock ShapeBaseImageData(RPX_M870Image)
 	stateTimeoutValue[11]		  	= 1.6;
 	stateSequence[11]			= "ReloadEmpty";
 	stateScript[11]				= "onReloadStart2";
-	stateSound[11]				= RPX_M870ReloadInEmptySound;
 	stateWaitForTimeout[11]		  	= true;
 	
 	stateName[12]				= "ReloadStart2B";
@@ -349,6 +344,8 @@ function RPX_M870Image::onUnMount(%this, %obj, %slot)
 
 function RPX_M870Image::onPump(%this, %obj, %slot)
 {
+	schedule(getRandom(500,600),0,serverPlay3D,AEShellShotgun @ getRandom(1,3) @ Sound,%obj.getPosition());
+
 	%obj.stopAudio(1);
 	%obj.playAudio(1, RPX_M870PumpBackSound);
 
