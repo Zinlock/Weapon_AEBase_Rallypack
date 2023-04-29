@@ -29,4 +29,5 @@ else
 	exec("./Weapon_92FS.cs");
 	exec("./Weapon_Glock.cs");
 	exec("./Weapon_AWP.cs");
+	exec("./Weapon_870.cs");
 }
