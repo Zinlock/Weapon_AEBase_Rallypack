@@ -113,7 +113,7 @@ datablock ShapeBaseImageData(RPX_AWPImage)
 	emap = true;
 
 	mountPoint = 0;
-	offset = "0 0 0";
+	offset = "0 0.2 0";
 	eyeOffset = 0;
 	rotation = eulerToMatrix( "0 0 0" );
 
@@ -434,7 +434,7 @@ datablock ShapeBaseImageData(RPX_AWPMagImage)
 {
 	shapeFile = "base/data/shapes/empty.dts";
 	mountPoint = 0;
-	offset = "-0.06 0.92 -0.10";
+	offset = "-0.06 1.12 -0.10";
 	rotation = eulerToMatrix( "0 33 0" );
 	
 	casing = RPX_AWPMagDebris;
@@ -465,7 +465,7 @@ datablock ShapeBaseImageData(RPX_AWPMagEmptyImage)
 {
 	shapeFile = "base/data/shapes/empty.dts";
 	mountPoint = 0;
-	offset = "-0.66 0.44 -0.27";
+	offset = "-0.66 0.64 -0.27";
 	rotation = eulerToMatrix( "0 -30 50" );
 	
 	casing = RPX_AWPMagDebris;
@@ -494,8 +494,8 @@ function RPX_AWPMagEmptyImage::onDone(%this,%obj,%slot)
 
 datablock ShapeBaseImageData(RPX_AWPScopeImage : RPX_AWPImage)
 {
-	offset = "0 0 0";
-	eyeOffset = "0 0.6 -0.5677";
+	offset = "0 0.2 0";
+	eyeOffset = "0 0.6 -0.6177";
 	rotation = eulerToMatrix( "0 -30 0" );
 
 	correctMuzzleVector = true;
@@ -583,7 +583,7 @@ datablock ShapeBaseImageData(RPX_AWPEquipImage)
 	shapeFile = "./dts/awp_image.dts";
 	emap = true;
 	mountPoint = 0;
-	offset = "0 0 0";
+	offset = "0 0.2 0";
 	eyeOffset = "0 0 0";
 	rotation = eulerToMatrix( "0 0 0" );
 	correctMuzzleVector = true;
