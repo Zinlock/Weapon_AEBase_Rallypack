@@ -1,74 +1,30 @@
-datablock AudioProfile(RPX_AWPFire1Sound)
+datablock AudioProfile(RPX_AWCFire1Sound)
 {
-	filename    = "./wav/AWP_fire1.wav";
-	description = HeavyClose3D;
+	filename    = "./wav/AWC_fire1.wav";
+	description = MediumClose3D;
 	preload = true;
 };
 
-datablock AudioProfile(RPX_AWPFire2Sound)
+datablock AudioProfile(RPX_AWCFire2Sound)
 {
-	filename    = "./wav/AWP_fire2.wav";
-	description = HeavyClose3D;
+	filename    = "./wav/AWC_fire2.wav";
+	description = MediumClose3D;
 	preload = true;
 };
 
-datablock AudioProfile(RPX_AWPFire3Sound)
+datablock AudioProfile(RPX_AWCFire3Sound)
 {
-	filename    = "./wav/AWP_fire3.wav";
-	description = HeavyClose3D;
+	filename    = "./wav/AWC_fire3.wav";
+	description = MediumClose3D;
 	preload = true;
 };
 
-datablock AudioProfile(RPX_AWPReloadMagOutSound)
-{
-	filename    = "./wav/AWP_reload_magout.wav";
-	description = AudioClosest3D;
-	preload = true;
-};
-
-datablock AudioProfile(RPX_AWPReloadMagInSound)
-{
-	filename    = "./wav/AWP_reload_magin.wav";
-	description = AudioClosest3D;
-	preload = true;
-};
-
-datablock AudioProfile(RPX_AWPBoltBackSound)
-{
-	filename    = "./wav/AWP_bolt_back.wav";
-	description = AudioClosest3D;
-	preload = true;
-};
-
-datablock AudioProfile(RPX_AWPBoltForwardSound)
-{
-	filename    = "./wav/AWP_bolt_forward.wav";
-	description = AudioClosest3D;
-	preload = true;
-};
-
-datablock DebrisData(RPX_AWPMagDebris)
-{
-	shapeFile = "./dts/AWP_mag.dts";
-	lifetime = 2.0;
-	minSpinSpeed = -700.0;
-	maxSpinSpeed = -600.0;
-	elasticity = 0.5;
-	friction = 0.1;
-	numBounces = 3;
-	staticOnMaxBounce = true;
-	snapOnMaxBounce = false;
-	fade = true;
-
-	gravModifier = 2;
-};
-
-datablock ItemData(RPX_AWPItem)
+datablock ItemData(RPX_AWCItem)
 {
 	category = "Weapon";
 	className = "Weapon";
 
-	shapeFile = "./dts/AWP_item.dts";
+	shapeFile = "./dts/AWC_item.dts";
 	rotate = false;
 	mass = 1;
 	density = 0.2;
@@ -76,12 +32,12 @@ datablock ItemData(RPX_AWPItem)
 	friction = 0.6;
 	emap = true;
 
-	uiName = "RPX: AWP";
-	iconName = "./icon/AWP";
+	uiName = "RPX: AWC";
+	iconName = "./icon/AWC";
 	doColorShift = true;
 	colorShiftColor = "1 1 1 1";
 
-	image = RPX_AWPEquipImage;
+	image = RPX_AWCEquipImage;
 	canDrop = true;
 
 	AEAmmo = 5;
@@ -100,9 +56,9 @@ datablock ItemData(RPX_AWPItem)
 	hardImpactSound = "AEWepImpactHard1Sound AEWepImpactHard2Sound AEWepImpactHard3Sound";
 };
 
-datablock ShapeBaseImageData(RPX_AWPImage)
+datablock ShapeBaseImageData(RPX_AWCImage)
 {
-	shapeFile = "./dts/AWP_image.dts";
+	shapeFile = "./dts/AWC_image.dts";
 	emap = true;
 
 	mountPoint = 0;
@@ -114,7 +70,7 @@ datablock ShapeBaseImageData(RPX_AWPImage)
 
 	className = "WeaponImage";
 
-	item = RPX_AWPItem;
+	item = RPX_AWCItem;
 	ammo = " ";
 
 	casing = AE_BERifleShellDebris;
@@ -127,9 +83,9 @@ datablock ShapeBaseImageData(RPX_AWPImage)
 	armReady = true;
 
 	doColorShift = true;
-	colorShiftColor = RPX_AWPItem.colorShiftColor;
+	colorShiftColor = RPX_AWCItem.colorShiftColor;
 
-	scopingImage = RPX_AWPScopeImage;
+	scopingImage = RPX_AWCScopeImage;
 
 	muzzleFlashScale = "1 1 1";
 
@@ -159,8 +115,6 @@ datablock ShapeBaseImageData(RPX_AWPImage)
 
 	screenshakeMin = "0.05 0.05 0.05";
 	screenshakeMax = "0.2 0.2 0.2";
-	farShotSound = RPX_SniperDistFireSound;
-	farShotDistance = 40;
 
 	sonicWhizz = true;
 	whizzSupersonic = 2;
@@ -180,10 +134,16 @@ datablock ShapeBaseImageData(RPX_AWPImage)
 	staticSwayMod = $RPX_SR_BulletSway;
 	staticEffectiveSpeedBonus = 0;
 	staticSpawnFakeProjectiles = true;
-	staticTracerEffect = "";
+	staticTracerEffect = AEStealthBulletStaticShape;
 	staticScaleCalibre = 0.5;
 	staticScaleLength = 0.5;
 	staticUnitsPerSecond = $RPX_SR_BulletSpeed;
+	
+	laserSize = "1.25 1.25 1.25";
+	laserColor = "1.0 0.1 0.1 1";
+	laserDistance = 600;
+	laserOffStates = "ReloadStart Reload ReloadEnd Reload2Start Reload2 Reload2End";
+  laserFade = 400;
 
 	stateName[0]                     	= "Activate";
 	stateTimeoutValue[0]             	= 0.01;
@@ -203,9 +163,6 @@ datablock ShapeBaseImageData(RPX_AWPImage)
 	stateTransitionOnTimeout[2]        = "Fire";
 	stateTransitionOnNoAmmo[2]       	= "NoAmmoFlashFix";
 	stateScript[2]                     = "AEOnFire";
-	stateEmitter[2]					= AEBaseShotgunFlashEmitter;
-	stateEmitterTime[2]				= 0.05;
-	stateEmitterNode[2]				= "muzzlePoint";
 	stateFire[2]                       = true;
 
 	stateName[3]                    = "Fire";
@@ -306,26 +263,23 @@ datablock ShapeBaseImageData(RPX_AWPImage)
 	
 	stateName[30]           = "NoAmmoFlashFix";
 	stateTransitionOnTimeout[30] = "Fire";
-	stateEmitter[30]					= AEBaseShotgunFlashEmitter;
-	stateEmitterTime[30]				= 0.05;
-	stateEmitterNode[30]				= "muzzlePoint";
 };
 
-function RPX_AWPImage::AEOnFire(%this,%obj,%slot)
+function RPX_AWCImage::AEOnFire(%this,%obj,%slot)
 {
 	%obj.blockImageDismount = true;
 	%obj.schedule(400, unBlockImageDismount);
 
 	cancel(%obj.reloadSoundSchedule);
 	%obj.stopAudio(0); 
-	%obj.playAudio(0, RPX_AWPFire @ getRandom(1, 3) @ Sound);	
+	%obj.playAudio(0, RPX_AWCFire @ getRandom(1, 3) @ Sound);	
 
 	%obj.aeplayThread(2, plant);
 
 	Parent::AEOnFire(%this, %obj, %slot);
 }
 
-function RPX_AWPImage::onBolt(%this, %obj, %slot)
+function RPX_AWCImage::onBolt(%this, %obj, %slot)
 {
 	schedule(getRandom(500,600),0,serverPlay3D,AEShellSniper @ getRandom(1,3) @ Sound,%obj.getPosition());
 
@@ -336,13 +290,13 @@ function RPX_AWPImage::onBolt(%this, %obj, %slot)
 	%obj.reload3Schedule = %obj.schedule(400, playAudio, 1, RPX_AWPBoltForwardSound);
 }
 
-function RPX_AWPImage::onReloadStart(%this, %obj, %slot)
+function RPX_AWCImage::onReloadStart(%this, %obj, %slot)
 {
 	%obj.reload0Schedule = %obj.schedule(150, stopAudio, 2);
 	%obj.reload1Schedule = %obj.schedule(150, playAudio, 2, RPX_AWPReloadMagOutSound);
 }
 
-function RPX_AWPImage::onReload(%this, %obj, %slot)
+function RPX_AWCImage::onReload(%this, %obj, %slot)
 {
 	%obj.reload2Schedule = %obj.schedule(400, stopAudio, 1);
 	%obj.reload3Schedule = %obj.schedule(400, playAudio, 1, RPX_AWPReloadMagInSound);
@@ -351,13 +305,13 @@ function RPX_AWPImage::onReload(%this, %obj, %slot)
 	%obj.reload4Schedule = schedule(getRandom(300,400),0,serverPlay3D,AEMagMetalAR @ getRandom(1,3) @ Sound,%obj.getPosition());
 }
 
-function RPX_AWPImage::onReload2Start(%this, %obj, %slot)
+function RPX_AWCImage::onReload2Start(%this, %obj, %slot)
 {
 	%obj.reload0Schedule = %obj.schedule(100, stopAudio, 2);
 	%obj.reload1Schedule = %obj.schedule(100, playAudio, 2, RPX_AWPBoltBackSound);
 }
 
-function RPX_AWPImage::onReload2(%this, %obj, %slot)
+function RPX_AWCImage::onReload2(%this, %obj, %slot)
 {
 	%obj.stopAudio(2);
 	%obj.playAudio(2, RPX_AWPReloadMagOutSound);
@@ -372,13 +326,13 @@ function RPX_AWPImage::onReload2(%this, %obj, %slot)
 	%obj.reload4Schedule = schedule(getRandom(300,400),0,serverPlay3D,AEMagMetalAR @ getRandom(1,3) @ Sound,%obj.getPosition());
 }
 
-function RPX_AWPImage::onDryFire(%this, %obj, %slot)
+function RPX_AWCImage::onDryFire(%this, %obj, %slot)
 {
 	%obj.aeplayThread(2, plant);
 	serverPlay3D(AEDryFireSound, %obj.getHackPosition());
 }
 
-function RPX_AWPImage::onReady(%this,%obj,%slot)
+function RPX_AWCImage::onReady(%this,%obj,%slot)
 {
 	if(getSimTime() - %obj.reloadTime[%this.getID()] <= %this.stateTimeoutValue[0] * 1000 + 1000)
 		%obj.schedule(0, setImageAmmo, %slot, 0);
@@ -388,13 +342,13 @@ function RPX_AWPImage::onReady(%this,%obj,%slot)
 	%this.AEPreAmmoCheck(%obj, %slot);
 }
 
-function RPX_AWPImage::onMount(%this,%obj,%slot)
+function RPX_AWCImage::onMount(%this,%obj,%slot)
 {
 	%this.AEMountSetup(%obj, %slot);
 	parent::onMount(%this,%obj,%slot);
 }
 
-function RPX_AWPImage::onUnMount(%this, %obj, %slot)
+function RPX_AWCImage::onUnMount(%this, %obj, %slot)
 {	
 	%this.AEUnmountCleanup(%obj, %slot);
 
@@ -406,7 +360,7 @@ function RPX_AWPImage::onUnMount(%this, %obj, %slot)
 	parent::onUnMount(%this,%obj,%slot);	
 }
 
-function RPX_AWPImage::onMagDrop(%this,%obj,%slot, %empty)
+function RPX_AWCImage::onMagDrop(%this,%obj,%slot, %empty)
 {
 	%a = new Camera()
 	{
@@ -417,13 +371,13 @@ function RPX_AWPImage::onMagDrop(%this,%obj,%slot, %empty)
 
 	%a.setTransform(%obj.getSlotTransform(0));
 	if(%empty)
-		%a.mountImage(RPX_AWPMagEmptyImage,0);
+		%a.mountImage(RPX_AWCMagEmptyImage,0);
 	else
-		%a.mountImage(RPX_AWPMagImage,0);
+		%a.mountImage(RPX_AWCMagImage,0);
 	%a.schedule(2500,delete);
 }
 
-datablock ShapeBaseImageData(RPX_AWPMagImage)
+datablock ShapeBaseImageData(RPX_AWCMagImage)
 {
 	shapeFile = "base/data/shapes/empty.dts";
 	mountPoint = 0;
@@ -449,12 +403,12 @@ datablock ShapeBaseImageData(RPX_AWPMagImage)
 	stateScript[2]                    = "onDone";
 };
 
-function RPX_AWPMagImage::onDone(%this,%obj,%slot)
+function RPX_AWCMagImage::onDone(%this,%obj,%slot)
 {
 	%obj.unMountImage(%slot);
 }
 
-datablock ShapeBaseImageData(RPX_AWPMagEmptyImage)
+datablock ShapeBaseImageData(RPX_AWCMagEmptyImage)
 {
 	shapeFile = "base/data/shapes/empty.dts";
 	mountPoint = 0;
@@ -480,27 +434,27 @@ datablock ShapeBaseImageData(RPX_AWPMagEmptyImage)
 	stateScript[2]                    = "onDone";
 };
 
-function RPX_AWPMagEmptyImage::onDone(%this,%obj,%slot)
+function RPX_AWCMagEmptyImage::onDone(%this,%obj,%slot)
 {
 	%obj.unMountImage(%slot);
 }
 
-datablock ShapeBaseImageData(RPX_AWPScopeImage : RPX_AWPImage)
+datablock ShapeBaseImageData(RPX_AWCScopeImage : RPX_AWCImage)
 {
 	offset = "0 0.2 0";
-	eyeOffset = "0 0.6 -0.6177";
+	eyeOffset = "0 0.6 -0.62";
 	rotation = eulerToMatrix( "0 -30 0" );
 
 	correctMuzzleVector = true;
 
 	className = "WeaponImage";
 
-	item = RPX_AWPItem;
+	item = RPX_AWCItem;
 
-	scopingImage = RPX_AWPImage;
-	sourceImage = RPX_AWPImage;
+	scopingImage = RPX_AWCImage;
+	sourceImage = RPX_AWCImage;
 
-	desiredFOV = $ae_HighScopeFOV;
+	desiredFOV = $ae_MedScopeFOV;
 	projectileZOffset = 0;
 	R_MovePenalty = 0.5;
 	
@@ -534,7 +488,7 @@ datablock ShapeBaseImageData(RPX_AWPScopeImage : RPX_AWPImage)
 	stateSound[21]               = "";
 };
 
-function RPX_AWPScopeImage::onMount(%this,%obj,%slot)
+function RPX_AWCScopeImage::onMount(%this,%obj,%slot)
 {
 	%obj.aeplayThread(2, plant);
 
@@ -545,7 +499,7 @@ function RPX_AWPScopeImage::onMount(%this,%obj,%slot)
 	parent::onMount(%this,%obj,%slot);
 }
 
-function RPX_AWPScopeImage::onUnMount(%this, %obj, %slot)
+function RPX_AWCScopeImage::onUnMount(%this, %obj, %slot)
 {
 	if(isObject(%obj.client) && %obj.client.IsA("GameConnection"))
 		%obj.client.play2D(AEAdsOut1Sound);
@@ -554,26 +508,26 @@ function RPX_AWPScopeImage::onUnMount(%this, %obj, %slot)
 	parent::onUnMount(%this,%obj,%slot);	
 }
 
-function RPX_AWPScopeImage::onReady(%this,%obj,%slot)
+function RPX_AWCScopeImage::onReady(%this,%obj,%slot)
 {
 	%obj.baadDisplayAmmo(%this);
 }
 
-function RPX_AWPScopeImage::onBolt(%this,%obj,%slot) { RPX_AWPImage::onBolt(%this,%obj,%slot); }
+function RPX_AWCScopeImage::onBolt(%this,%obj,%slot) { RPX_AWCImage::onBolt(%this,%obj,%slot); }
 
-function RPX_AWPScopeImage::AEOnFire(%this,%obj,%slot) { RPX_AWPImage::AEOnFire(%this,%obj,%slot); }
+function RPX_AWCScopeImage::AEOnFire(%this,%obj,%slot) { RPX_AWCImage::AEOnFire(%this,%obj,%slot); }
 
-function RPX_AWPScopeImage::onDryFire(%this,%obj,%slot) { RPX_AWPImage::onDryFire(%this,%obj,%slot); }
+function RPX_AWCScopeImage::onDryFire(%this,%obj,%slot) { RPX_AWCImage::onDryFire(%this,%obj,%slot); }
 
-function RPX_AWPScopeImage::onDone(%this,%obj,%slot)
+function RPX_AWCScopeImage::onDone(%this,%obj,%slot)
 {
 	%obj.reloadTime[%this.sourceImage.getID()] = getSimTime();
 	%obj.mountImage(%this.sourceImage, 0);
 }
 
-datablock ShapeBaseImageData(RPX_AWPEquipImage)
+datablock ShapeBaseImageData(RPX_AWCEquipImage)
 {
-	shapeFile = "./dts/awp_image.dts";
+	shapeFile = "./dts/AWC_image.dts";
 	emap = true;
 	mountPoint = 0;
 	offset = "0 0.2 0";
@@ -581,14 +535,14 @@ datablock ShapeBaseImageData(RPX_AWPEquipImage)
 	rotation = eulerToMatrix( "0 0 0" );
 	correctMuzzleVector = true;
 	className = "WeaponImage";
-	item = RPX_AWPItem;
-	sourceImage = RPX_AWPImage;
+	item = RPX_AWCItem;
+	sourceImage = RPX_AWCImage;
 	ammo = " ";
 	melee = false;
 	armReady = true;
 	hideHands = true;
 	doColorShift = true;
-	colorShiftColor = RPX_AWPItem.colorShiftColor;
+	colorShiftColor = RPX_AWCItem.colorShiftColor;
 
 	isSafetyImage = true;
 
@@ -603,19 +557,19 @@ datablock ShapeBaseImageData(RPX_AWPEquipImage)
 
 };
 
-function RPX_AWPEquipImage::onMount(%this,%obj,%slot)
+function RPX_AWCEquipImage::onMount(%this,%obj,%slot)
 {
 	%this.AEMountSetup(%obj, %slot);
 	parent::onMount(%this,%obj,%slot);
 }
 
-function RPX_AWPEquipImage::onUnMount(%this, %obj, %slot)
+function RPX_AWCEquipImage::onUnMount(%this, %obj, %slot)
 {
 	%this.AEUnmountCleanup(%obj, %slot);
 	parent::onUnMount(%this,%obj,%slot);	
 }
 
-function RPX_AWPEquipImage::onDone(%this,%obj,%slot)
+function RPX_AWCEquipImage::onDone(%this,%obj,%slot)
 {
 	%obj.mountImage(%this.sourceImage, 0);
 }
