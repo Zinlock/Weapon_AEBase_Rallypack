@@ -8,7 +8,7 @@ datablock AudioProfile(RPX_PistolDistFireSound)
 
 datablock AudioProfile(RPX_RifleDistFireSound)
 {
-	filename    = "./wav/dist_Rifle.wav";
+	filename    = "./wav/dist_AssaultRifle.wav";
 	description = HeavyFar3D;
 	pitchRange = 25;
 	preload = true;
