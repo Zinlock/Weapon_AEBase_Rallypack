@@ -1,3 +1,5 @@
+// DISTANT SHOTS //
+
 datablock AudioProfile(RPX_PistolDistFireSound)
 {
 	filename    = "./wav/dist_Pistol.wav";
@@ -30,16 +32,32 @@ datablock AudioProfile(RPX_SniperDistFireSound)
 	preload = true;
 };
 
+// UNHOLSTER //
+
+datablock AudioProfile(RPX_ShotgunUnholsterSound)
+{
+	filename    = "./wav/unholster_shotgun.wav";
+	description = AudioClosest3D;
+	preload = true;
+};
+
 datablock AudioProfile(RPX_RifleUnholsterSound)
 {
-	filename    = "./wav/rifle_unholster.wav";
+	filename    = "./wav/unholster_rifle.wav"; // TODO
 	description = AudioClosest3D;
 	preload = true;
 };
 
 datablock AudioProfile(RPX_SMGUnholsterSound)
 {
-	filename    = "./wav/smg_unholster.wav";
+	filename    = "./wav/unholster_smg.wav";
+	description = AudioClosest3D;
+	preload = true;
+};
+
+datablock AudioProfile(RPX_PistolUnholsterSound)
+{
+	filename    = "./wav/unholster_pistol.wav"; // TODO
 	description = AudioClosest3D;
 	preload = true;
 };

@@ -69,7 +69,7 @@ datablock ItemData(RPX_glockItem)
 	friction = 0.6;
 	emap = true;
 
-	uiName = "RPX: Glock 21";
+	uiName = "RPX: Glock 17";
 	iconName = "./icon/glock";
 	doColorShift = true;
 	colorShiftColor = "0.5 0.5 0.5 1";
@@ -77,8 +77,8 @@ datablock ItemData(RPX_glockItem)
 	image = RPX_glockImage;
 	canDrop = true;
 
-	AEAmmo = 13;
-	AEType = AE_MediumPAmmoItem.getID(); 
+	AEAmmo = 17;
+	AEType = AE_LightPAmmoItem.getID(); 
 	AEBase = 1;
 
 	RPM = 312;
@@ -131,7 +131,7 @@ datablock ShapeBaseImageData(RPX_glockImage)
 	bulletScale = "1 1 1";
 	projectile = AETrailedProjectile;
 	projectileType = Projectile;
-	projectileDamage = 21;
+	projectileDamage = 19;
 	projectileCount = 1;
 	projectileHeadshotMult = 1.4;
 	projectileVelocity = 200;
@@ -172,7 +172,7 @@ datablock ShapeBaseImageData(RPX_glockImage)
 	stateTimeoutValue[0]             	= 0.3;
 	stateTransitionOnTimeout[0]       	= "LoadCheckA";
 	stateSequence[0]			= "unholster";
-	stateSound[0]         = RPX_SMGUnholsterSound;
+	stateSound[0]         = RPX_PistolUnholsterSound;
 
 	stateName[1]                     	= "Ready";
 	stateScript[1]				= "onReady";

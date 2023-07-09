@@ -77,7 +77,7 @@ datablock ItemData(RPX_berettaItem)
 	image = RPX_berettaImage;
 	canDrop = true;
 
-	AEAmmo = 18;
+	AEAmmo = 15;
 	AEType = AE_LightPAmmoItem.getID(); 
 	AEBase = 1;
 
@@ -172,7 +172,7 @@ datablock ShapeBaseImageData(RPX_berettaImage)
 	stateTimeoutValue[0]             	= 0.3;
 	stateTransitionOnTimeout[0]       	= "LoadCheckA";
 	stateSequence[0]			= "unholster";
-	stateSound[0]         = RPX_SMGUnholsterSound;
+	stateSound[0]         = RPX_PistolUnholsterSound;
 
 	stateName[1]                     	= "Ready";
 	stateScript[1]				= "onReady";
