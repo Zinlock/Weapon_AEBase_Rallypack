@@ -1,9 +1,14 @@
 // DISTANT SHOTS //
 
+datablock AudioDescription(RPX_Distant : HeavyFar3D)
+{
+	volume = 0.75;
+};
+
 datablock AudioProfile(RPX_PistolDistFireSound)
 {
 	filename    = "./wav/dist_Pistol.wav";
-	description = HeavyFar3D;
+	description = RPX_Distant;
 	pitchRange = 25;
 	preload = true;
 };
@@ -11,7 +16,7 @@ datablock AudioProfile(RPX_PistolDistFireSound)
 datablock AudioProfile(RPX_SMGDistFireSound)
 {
 	filename    = "./wav/dist_Submachine.wav";
-	description = HeavyFar3D;
+	description = RPX_Distant;
 	pitchRange = 25;
 	preload = true;
 };
@@ -19,7 +24,7 @@ datablock AudioProfile(RPX_SMGDistFireSound)
 datablock AudioProfile(RPX_MarksmanDistFireSound)
 {
 	filename    = "./wav/dist_Marksman.wav";
-	description = HeavyFar3D;
+	description = RPX_Distant;
 	pitchRange = 25;
 	preload = true;
 };
@@ -27,7 +32,7 @@ datablock AudioProfile(RPX_MarksmanDistFireSound)
 datablock AudioProfile(RPX_RifleDistFireSound)
 {
 	filename    = "./wav/dist_AssaultRifle.wav";
-	description = HeavyFar3D;
+	description = RPX_Distant;
 	pitchRange = 25;
 	preload = true;
 };
@@ -35,7 +40,7 @@ datablock AudioProfile(RPX_RifleDistFireSound)
 datablock AudioProfile(RPX_ShotgunDistFireSound)
 {
 	filename    = "./wav/dist_Shotgun.wav";
-	description = HeavyFar3D;
+	description = RPX_Distant;
 	pitchRange = 25;
 	preload = true;
 };
@@ -43,7 +48,7 @@ datablock AudioProfile(RPX_ShotgunDistFireSound)
 datablock AudioProfile(RPX_SniperDistFireSound)
 {
 	filename    = "./wav/dist_SniperRifle.wav";
-	description = HeavyFar3D;
+	description = RPX_Distant;
 	pitchRange = 25;
 	preload = true;
 };
