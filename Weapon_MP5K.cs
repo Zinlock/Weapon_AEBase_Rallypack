@@ -168,7 +168,7 @@ datablock ShapeBaseImageData(RPX_MP5KImage)
 
 	screenshakeMin = "0.02 0.02 0.02";
 	screenshakeMax = "0.2 0.2 0.2";
-	farShotSound = RPX_PistolDistFireSound;
+	farShotSound = RPX_SMGDistFireSound;
 	farShotDistance = 40;
 
 	sonicWhizz = true;

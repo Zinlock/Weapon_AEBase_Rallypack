@@ -8,6 +8,22 @@ datablock AudioProfile(RPX_PistolDistFireSound)
 	preload = true;
 };
 
+datablock AudioProfile(RPX_SMGDistFireSound)
+{
+	filename    = "./wav/dist_Submachine.wav";
+	description = HeavyFar3D;
+	pitchRange = 25;
+	preload = true;
+};
+
+datablock AudioProfile(RPX_MarksmanDistFireSound)
+{
+	filename    = "./wav/dist_Marksman.wav";
+	description = HeavyFar3D;
+	pitchRange = 25;
+	preload = true;
+};
+
 datablock AudioProfile(RPX_RifleDistFireSound)
 {
 	filename    = "./wav/dist_AssaultRifle.wav";
