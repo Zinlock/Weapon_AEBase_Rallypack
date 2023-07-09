@@ -74,7 +74,7 @@ datablock ItemData(RPX_ak47Item)
 	doColorShift = true;
 	colorShiftColor = "1 1 1 1";
 
-	image = RPX_ak47Image;
+	image = RPX_ak47EquipImage;
 	canDrop = true;
 	
 	AEAmmo = 30;
@@ -109,6 +109,8 @@ datablock ShapeBaseImageData(RPX_ak47Image)
 
 	item = RPX_ak47Item;
 	ammo = " ";
+
+	scopingImage = RPX_ak47ScopeImage;
 
 	casing = AE_BERifleShellDebris;
 	shellExitDir        = "1 0 0.5";
@@ -181,10 +183,9 @@ datablock ShapeBaseImageData(RPX_ak47Image)
 	staticUnitsPerSecond = $RPX_AR_BulletSpeed;
 
 	stateName[0]                     	= "Activate";
-	stateTimeoutValue[0]             	= 0.4;
+	stateTimeoutValue[0]             	= 0.01;
 	stateTransitionOnTimeout[0]       	= "LoadCheckA";
-	stateSequence[0]			= "unholster";
-	stateSound[0]         = RPX_RifleUnholsterSound;
+	stateSequence[0]			= "root";
 
 	stateName[1]                     	= "Ready";
 	stateScript[1]				= "onReady";
@@ -414,3 +415,19 @@ function RPX_ak47MagImage::onDone(%this,%obj,%slot)
 {
 	%obj.unMountImage(%slot);
 }
+
+RPXGenerateADSImage(RPX_ak47ScopeImage, RPX_ak47Image,
+                    "0 0.4 -0.4972", eulerToMatrix("0 -30 0"),
+										$ae_LowIronsFOV, 0,
+										16, 21,
+										"R_MovePenalty = 0.5;" NL
+										"stateTimeoutValue[0] = 0.2;" NL
+										"stateSound[0] = \"\";" NL
+										"stateSequence[0] = \"scopeIn\";" NL
+										"stateSequence[3] = \"fireADS\";",
+										AEAdsIn6Sound, AEAdsOut3Sound,
+										0.5, 0.5,
+										0.5, 0.5,
+										0.2);
+
+RPXGenerateEquipImage(RPX_ak47EquipImage, RPX_ak47Image, 0.4, "unholster", RPX_RifleUnholsterSound);

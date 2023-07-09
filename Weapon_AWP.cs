@@ -485,137 +485,18 @@ function RPX_AWPMagEmptyImage::onDone(%this,%obj,%slot)
 	%obj.unMountImage(%slot);
 }
 
-datablock ShapeBaseImageData(RPX_AWPScopeImage : RPX_AWPImage)
-{
-	offset = "0 0.2 0";
-	eyeOffset = "0 0.6 -0.6177";
-	rotation = eulerToMatrix( "0 -30 0" );
+RPXGenerateADSImage(RPX_AWPScopeImage, RPX_AWPImage,
+                    "0 0.6 -0.6179", eulerToMatrix("0 -30 0"), // eye offset, rotation
+										$ae_HighScopeFOV, 0, // fov, projectile z offset
+										16, 21, // reload start 1 and 2 state ids
+										"R_MovePenalty = 0.5;" NL
+										"isScopedImage = true;" NL
+										"stateTimeoutValue[0] = 0.3;" NL
+										"stateSequence[0] = \"scopeIn\";" NL
+										"stateSequence[7] = \"boltScoped\";", // extra fields
+										AEAdsIn1Sound, AEAdsOut1Sound, // ADS in, out sound
+										0.25, 0.25, // recoil mult X, Z
+										0.25, 0.25, // recoil mult max X, Z
+										0.01); // spread mult
 
-	correctMuzzleVector = true;
-
-	className = "WeaponImage";
-
-	item = RPX_AWPItem;
-
-	scopingImage = RPX_AWPImage;
-	sourceImage = RPX_AWPImage;
-
-	desiredFOV = $ae_HighScopeFOV;
-	projectileZOffset = 0;
-	R_MovePenalty = 0.5;
-	
-	recoilHeight = 30;
-	recoilWidth = 10;
-	recoilHeightMax = 200;
-	recoilWidthMax = 30;
-
-	spreadBurst = 1;
-	spreadBase = 0;
-	spreadReset = 700;
-	spreadMin = 50;
-	spreadAdd = 50;
-	spreadMax = 200;
-
-	stateName[0]                     	= "Activate";
-	stateTimeoutValue[0]             	= 0.3;
-	stateTransitionOnTimeout[0]       	= "LoadCheckA";
-	stateSequence[0]			= "scopeIn";
-
-	stateSequence[7] = "boltScoped";
-
-	stateScript[16] = "onDone";
-	stateTimeoutValue[16]        = 1;
-	stateTransitionOnTimeout[16] = "";
-	stateSound[16]               = "";
-
-	stateScript[21]              = "onDone";
-	stateTimeoutValue[21]        = 1;
-	stateTransitionOnTimeout[21] = "";
-	stateSound[21]               = "";
-};
-
-function RPX_AWPScopeImage::onMount(%this,%obj,%slot)
-{
-	%obj.aeplayThread(2, plant);
-
-	if(isObject(%obj.client) && %obj.client.IsA("GameConnection"))
-		%obj.client.play2D(AEAdsIn1Sound);
-
-	%this.AEMountSetup(%obj, %slot);
-	parent::onMount(%this,%obj,%slot);
-}
-
-function RPX_AWPScopeImage::onUnMount(%this, %obj, %slot)
-{
-	if(isObject(%obj.client) && %obj.client.IsA("GameConnection"))
-		%obj.client.play2D(AEAdsOut1Sound);
-
-	%this.AEUnmountCleanup(%obj, %slot);
-	parent::onUnMount(%this,%obj,%slot);	
-}
-
-function RPX_AWPScopeImage::onReady(%this,%obj,%slot)
-{
-	%obj.baadDisplayAmmo(%this);
-}
-
-function RPX_AWPScopeImage::onBolt(%this,%obj,%slot) { RPX_AWPImage::onBolt(%this,%obj,%slot); }
-
-function RPX_AWPScopeImage::AEOnFire(%this,%obj,%slot) { RPX_AWPImage::AEOnFire(%this,%obj,%slot); }
-
-function RPX_AWPScopeImage::onDryFire(%this,%obj,%slot) { RPX_AWPImage::onDryFire(%this,%obj,%slot); }
-
-function RPX_AWPScopeImage::onDone(%this,%obj,%slot)
-{
-	%obj.reloadTime[%this.sourceImage.getID()] = getSimTime();
-	%obj.mountImage(%this.sourceImage, 0);
-}
-
-datablock ShapeBaseImageData(RPX_AWPEquipImage)
-{
-	shapeFile = "./dts/awp_image.dts";
-	emap = true;
-	mountPoint = 0;
-	offset = "0 0.2 0";
-	eyeOffset = "0 0 0";
-	rotation = eulerToMatrix( "0 0 0" );
-	correctMuzzleVector = true;
-	className = "WeaponImage";
-	item = RPX_AWPItem;
-	sourceImage = RPX_AWPImage;
-	ammo = " ";
-	melee = false;
-	armReady = true;
-	hideHands = true;
-	doColorShift = true;
-	colorShiftColor = RPX_AWPItem.colorShiftColor;
-
-	isSafetyImage = true;
-
-	stateName[0]                     	= "Activate";
-	stateTimeoutValue[0]             	= 0.4;
-	stateTransitionOnTimeout[0]       	= "Done";
-	stateSequence[0]			= "unholster";
-	stateSound[0]         = RPX_RifleUnholsterSound;
-	
-	stateName[1]                     	= "Done";
-	stateScript[1]				= "onDone";
-
-};
-
-function RPX_AWPEquipImage::onMount(%this,%obj,%slot)
-{
-	%this.AEMountSetup(%obj, %slot);
-	parent::onMount(%this,%obj,%slot);
-}
-
-function RPX_AWPEquipImage::onUnMount(%this, %obj, %slot)
-{
-	%this.AEUnmountCleanup(%obj, %slot);
-	parent::onUnMount(%this,%obj,%slot);	
-}
-
-function RPX_AWPEquipImage::onDone(%this,%obj,%slot)
-{
-	%obj.mountImage(%this.sourceImage, 0);
-}
+RPXGenerateEquipImage(RPX_AWPEquipImage, RPX_AWPImage, 0.4, "unholster", RPX_RifleUnholsterSound);
