@@ -31,4 +31,5 @@ else
 	exec("./Weapon_AWP.cs");
 	exec("./Weapon_870.cs");
 	exec("./Weapon_AWC.cs");
+	exec("./Weapon_Deagle.cs");
 }
