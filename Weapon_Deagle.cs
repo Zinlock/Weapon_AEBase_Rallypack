@@ -77,7 +77,7 @@ datablock ItemData(RPX_deagleItem)
 	image = RPX_deagleImage;
 	canDrop = true;
 
-	AEAmmo = 8;
+	AEAmmo = 7;
 	AEType = AE_HeavyPAmmoItem.getID(); 
 	AEBase = 1;
 
