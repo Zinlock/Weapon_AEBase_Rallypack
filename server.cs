@@ -134,4 +134,5 @@ else
 	exec("./Weapon_870.cs");
 	exec("./Weapon_AWC.cs");
 	exec("./Weapon_Deagle.cs");
+	exec("./Weapon_SSR.cs");
 }
