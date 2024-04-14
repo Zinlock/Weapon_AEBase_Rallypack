@@ -70,7 +70,7 @@ datablock ItemData(RPX_berettaItem)
 	emap = true;
 
 	uiName = "RPX: Beretta 92FS";
-	iconName = "./icon/beretta";
+	iconName = "./icon/92fs";
 	doColorShift = true;
 	colorShiftColor = "1 1 1 1";
 

@@ -77,7 +77,7 @@ datablock ItemData(RPX_AWPItem)
 	emap = true;
 
 	uiName = "RPX: AWP";
-	iconName = "./icon/AWP";
+	iconName = "./icon/awp";
 	doColorShift = true;
 	colorShiftColor = "1 1 1 1";
 
@@ -129,6 +129,7 @@ datablock ShapeBaseImageData(RPX_AWPImage)
 	doColorShift = true;
 	colorShiftColor = RPX_AWPItem.colorShiftColor;
 
+	isScopedImage = true;
 	scopingImage = RPX_AWPScopeImage;
 
 	muzzleFlashScale = "1 1 1";
@@ -490,7 +491,6 @@ RPXGenerateADSImage(RPX_AWPScopeImage, RPX_AWPImage,
 										$ae_HighScopeFOV, 0, // fov, projectile z offset
 										16, 21, // reload start 1 and 2 state ids
 										"R_MovePenalty = 0.5;" NL
-										"isScopedImage = true;" NL
 										"stateTimeoutValue[0] = 0.3;" NL
 										"stateSequence[0] = \"scopeIn\";" NL
 										"stateSequence[7] = \"boltScoped\";", // extra fields

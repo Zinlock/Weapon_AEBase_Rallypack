@@ -110,6 +110,7 @@ datablock ShapeBaseImageData(RPX_SSRImage)
 	item = RPX_SSRItem;
 	ammo = " ";
 
+	isScopedImage = true;
 	scopingImage = RPX_SSRScopeImage;
 
 	casing = AE_BERifleShellDebris;

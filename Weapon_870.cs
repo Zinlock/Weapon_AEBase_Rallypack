@@ -47,7 +47,7 @@ datablock ItemData(RPX_M870Item)
 	emap = true;
 
 	uiName = "RPX: 870 MCS";
-	iconName = "./icon/870";
+	iconName = "./icon/870mcs";
 	doColorShift = true;
 	colorShiftColor = "0.75 0.75 0.75 1";
 

@@ -61,7 +61,7 @@ datablock ItemData(RPX_B828Item)
 	emap = true;
 
 	uiName = "RPX: Benelli 828";
-	iconName = "./icon/B828";
+	iconName = "./icon/828";
 	doColorShift = true;
 	colorShiftColor = "1 1 1 1";
 

@@ -33,7 +33,7 @@ datablock ItemData(RPX_AWCItem)
 	emap = true;
 
 	uiName = "RPX: AWC";
-	iconName = "./icon/AWC";
+	iconName = "./icon/awc";
 	doColorShift = true;
 	colorShiftColor = "1 1 1 1";
 
@@ -85,6 +85,7 @@ datablock ShapeBaseImageData(RPX_AWCImage)
 	doColorShift = true;
 	colorShiftColor = RPX_AWCItem.colorShiftColor;
 
+	isScopedImage = true;
 	scopingImage = RPX_AWCScopeImage;
 
 	muzzleFlashScale = "1 1 1";
