@@ -108,9 +108,9 @@ datablock ShapeBaseImageData(RPX_AWCImage)
 	recoilWidthMax = 500;
 
 	spreadBurst = 1;
-	spreadBase = 500;
+	spreadBase = 650;
 	spreadReset = 700;
-	spreadMin = 500;
+	spreadMin = 650;
 	spreadAdd = 50;
 	spreadMax = 2000;
 
@@ -177,7 +177,7 @@ datablock ShapeBaseImageData(RPX_AWCImage)
 
 	stateName[4]				= "FireLoadCheckA";
 	stateScript[4]				= "AEMagLoadCheck";
-	stateTimeoutValue[4]			= 0.3;
+	stateTimeoutValue[4]			= 0.5;
 	stateTransitionOnTimeout[4]		= "FireLoadCheckB";
 	
 	stateName[5]				= "FireLoadCheckB";
@@ -186,7 +186,7 @@ datablock ShapeBaseImageData(RPX_AWCImage)
 	stateTransitionOnNotLoaded[5]  = "Bolt";
 
 	stateName[7]                  = "Bolt";
-	stateTimeoutValue[7]          = 0.9;
+	stateTimeoutValue[7]          = 1.0;
 	stateSequence[7]              = "bolt";
 	stateTransitionOnTimeout[7]   = "Ready";
 	stateScript[7]                = "onBolt";
