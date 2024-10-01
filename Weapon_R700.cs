@@ -345,8 +345,8 @@ function RPX_R700Image::onReloadStart(%this, %obj, %slot)
 
 function RPX_R700Image::onReload(%this, %obj, %slot)
 {
-	%obj.reload2Schedule = %obj.schedule(200, stopAudio, 1);
-	%obj.reload3Schedule = %obj.schedule(200, playAudio, 1, RPX_R700ReloadMagInSound);
+	%obj.reload2Schedule = %obj.schedule(300, stopAudio, 1);
+	%obj.reload3Schedule = %obj.schedule(300, playAudio, 1, RPX_R700ReloadMagInSound);
 
 	%this.onMagDrop(%obj,%slot);
 	%obj.reload4Schedule = schedule(getRandom(300,400),0,serverPlay3D,AEMagMetalAR @ getRandom(1,3) @ Sound,%obj.getPosition());
