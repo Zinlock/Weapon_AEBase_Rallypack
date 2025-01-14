@@ -148,11 +148,11 @@ datablock ShapeBaseImageData(RPX_ak47Image)
 	recoilWidthMax = 400;
 
 	spreadBurst = 2;
-	spreadBase = 10;
+	spreadBase = 15;
 	spreadReset = 300;
-	spreadMin = 30;
-	spreadAdd = 20;
-	spreadMax = 300;
+	spreadMin = 50;
+	spreadAdd = 35;
+	spreadMax = 500;
 
 	screenshakeMin = "0.02 0.02 0.02";
 	screenshakeMax = "0.2 0.2 0.2";
@@ -428,6 +428,6 @@ RPXGenerateADSImage(RPX_ak47ScopeImage, RPX_ak47Image,
 										AEAdsIn6Sound, AEAdsOut3Sound,
 										0.5, 0.5,
 										0.5, 0.5,
-										0.2);
+										0.5);
 
 RPXGenerateEquipImage(RPX_ak47EquipImage, RPX_ak47Image, 0.4, "unholster", RPX_RifleUnholsterSound);

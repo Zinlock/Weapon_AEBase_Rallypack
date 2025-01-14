@@ -127,11 +127,11 @@ datablock ShapeBaseImageData(RPX_mk18Image)
 	recoilWidthMax = 300;
 
 	spreadBurst = 2;
-	spreadBase = 10;
+	spreadBase = 30;
 	spreadReset = 300;
-	spreadMin = 30;
-	spreadAdd = 20;
-	spreadMax = 300;
+	spreadMin = 60;
+	spreadAdd = 22;
+	spreadMax = 500;
 
 	screenshakeMin = "0.02 0.02 0.02";
 	screenshakeMax = "0.2 0.2 0.2";
@@ -447,6 +447,6 @@ RPXGenerateADSImage(RPX_mk18ScopeImage, RPX_mk18Image,
 										AEAdsIn6Sound, AEAdsOut3Sound,
 										0.5, 0.5,
 										0.5, 0.5,
-										0.2);
+										0.5);
 
 RPXGenerateEquipImage(RPX_mk18EquipImage, RPX_mk18Image, 0.4, "unholster", RPX_RifleUnholsterSound);
